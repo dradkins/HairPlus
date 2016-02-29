@@ -1,0 +1,132 @@
+﻿<div class="invoice" style="margin:15px;">
+
+    <div class="row">
+
+        <div class="col-sm-6 invoice-left">
+
+            <a href="">
+                <img src="../../Content/logo.PNG" />
+            </a>
+
+        </div>
+
+        <div class="col-sm-6 invoice-right">
+
+            <h3>INVOICE NO. #{{invoice.invoiceId}}</h3>
+            <span>{{currentDate | date : 'medium'}}</span>
+        </div>
+
+    </div>
+
+
+    <hr class="margin" />
+
+
+    <div class="row">
+
+        <div class="col-sm-3 invoice-left">
+
+            <h4>Client</h4>
+            {{invoice.customerName}}
+            <br />
+            {{invoice.customerAddress}}
+
+        </div>
+
+        <div class="col-sm-3 invoice-left">
+
+            <h4>&nbsp;</h4>
+            {{invoice.customerPhoneNo}}
+            <br />
+            {{invoice.customerMobileNo}}
+        </div>
+        <div class="col-md-6"></div>
+
+        <div class="col-md-6 invoice-right">
+
+            <h4>Treatment Date:</h4>
+            <strong>{{invoice.treatmentDate | date:'medium'}}</strong>
+
+        </div>
+
+    </div>
+
+    <div class="margin"></div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th width="60%">Treatment</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td ng-if="invoiceType==1">Surgical Treatement</td>
+                <td ng-if="invoiceType==2">Non Surgical Treatement</td>
+                <td ng-if="invoiceType==3">Non Surgical Treatement Maintanance</td>
+                <td class="text-right">{{invoice.totalAmount}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="margin"></div>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <div class="invoice-left">
+
+                2nd Floor Nazir Plaza
+                <br />
+                Chandni Chowk, Murree Road, Rawalpindi
+                <br />
+                P: (051) 457-1226
+                <br />
+                M: (0300) 502-9677
+                <br />
+                info@hairplusint.com
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="invoice-right">
+
+                <ul class="list-unstyled">
+                    <li>
+                        Sub - Total amount:
+                        <strong>{{invoice.totalAmount}}</strong>
+                    </li>
+                    <li>
+                        Advance:
+                        <strong>{{invoice.advance}}</strong>
+                    </li>
+                    <li>
+                        Discount:
+                        <strong>{{invoice.discount}}</strong>
+                    </li>
+                    <li>
+                        Grand Total:
+                        <strong>{{invoice.totalAmount-invoice.advance-invoice.discount}}</strong>
+                    </li>
+                </ul>
+
+                <br />
+
+                <a href="javascript:window.print();" class="btn btn-primary btn-icon icon-left hidden-print">
+                    Print Invoice
+                    <i class="entypo-doc-text"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

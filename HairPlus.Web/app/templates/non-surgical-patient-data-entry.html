@@ -1,0 +1,315 @@
+﻿<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3 ng-if="isNewCustomer">
+                    New Surgical Customer
+                </h3>
+                <h3 ng-if="!isNewCustomer">
+                    Update Surgical Customer
+                </h3>
+                <span ng-if="isNewCustomer">Add New Surgical Customer</span>
+                <span ng-if="!isNewCustomer">Update Surgical Customer</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <fieldset>
+                    <legend>Personal Info</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" disabled class="form-control" id="fullName" placeholder="Full Name" ng-model="data.name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="telephoneNo">Telephone Number</label>
+                            <input type="text" class="form-control" id="telephoneNo" placeholder="telephone number" ng-model="data.telephoneNo" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mobilenumber">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobilenumber" placeholder="mobile number" ng-model="data.mobileNo" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" id="address" rows="5" cols="50" placeholder="address" ng-model="data.address" disabled></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Replacement Information</legend>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="dateVisited">Appointment Date &amp; Time</label>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="model.treatmentDateTime" is-open="isOpen" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="openCalendar($event, prop)"><i class="entypo-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="dateVisited">Style</label>
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-model="model.style" ng-true-value="'Free Style'" ng-false-value="''" /> Free Style
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="colorInstructions">Color Instructions</label>
+                                <input type="text" class="form-control" id="colorInstructions" placeholder="color instructions" ng-model="model.colorInstructions">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="baseInstructions">Base Instructions</label>
+                                <input type="text" class="form-control" id="baseInstructions" placeholder="base instructions" ng-model="model.baseInstructions">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Fiber</h4>
+                                <div class="form-group">
+                                    <label for="dateVisited">Human</label>
+                                    <input type="number" class="form-control" ng-model="model.humaFiber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateVisited">Synthetic</label>
+                                    <input type="number" class="form-control" ng-model="model.syntheticFiber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateVisited">Gray Hair</label>
+                                    <input type="number" class="form-control" ng-model="model.grayFiber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateVisited">Color</label>
+                                    <input type="text" class="form-control" ng-model="model.color">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateVisited">Size</label>
+                                    <input type="number" class="form-control" ng-model="model.size">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Length</h4>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="1" name="lengthRadio" ng-model="model.length" /> 1
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="2" name="lengthRadio" ng-model="model.length" /> 2
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="3" name="lengthRadio" ng-model="model.length" /> 2A
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="4" name="lengthRadio" ng-model="model.length" /> 3
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="5" name="lengthRadio" ng-model="model.length" /> 4
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="6" name="lengthRadio" ng-model="model.length" /> 4A
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="7" name="lengthRadio" ng-model="model.length" /> 5
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="8" name="lengthRadio" ng-model="model.length" /> 6
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Curly</h4>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="1" name="curlyRadio" ng-model="model.curly" /> Straight
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="2" name="curlyRadio" ng-model="model.curly" /> 40mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="3" name="curlyRadio" ng-model="model.curly" /> 36mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="4" name="curlyRadio" ng-model="model.curly" /> 30mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="5" name="curlyRadio" ng-model="model.curly" /> 25mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="6" name="curlyRadio" ng-model="model.curly" /> 20mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="7" name="curlyRadio" ng-model="model.curly" /> 18mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="8" name="curlyRadio" ng-model="model.curly" /> 13mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="9" name="curlyRadio" ng-model="model.curly" /> 10mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="10" name="curlyRadio" ng-model="model.curly" /> 6mm
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="11" name="curlyRadio" ng-model="model.curly" /> 4mm
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Density</h4>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="1" name="densityRadio" ng-model="model.density" /> Super Light
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="2" name="densityRadio" ng-model="model.density" /> Light
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="3" name="densityRadio" ng-model="model.density" /> Medium
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="4" name="densityRadio" ng-model="model.density" /> Midium Heavy
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="5" name="densityRadio" ng-model="model.density" /> Heavy
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="radio">
+                                        <input type="radio" value="6" name="densityRadio" ng-model="model.density" /> Super Heavy
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Account Information</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="totalAmount">Total Amount</label>
+                            <input type="number" class="form-control" id="totalAmount" placeholder="0" ng-model="model.totalAmount">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="discount">Discount</label>
+                            <input type="number" class="form-control" id="discount" placeholder="0" ng-model="model.discount">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="advance">Advance</label>
+                            <input type="number" class="form-control" id="advance" placeholder="0" ng-model="model.advance">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="netAmount">Net Amount</label>
+                            <input type="number" class="form-control" id="netAmount" placeholder="0" value="{{model.totalAmount-model.discount}}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="balance">Balance</label>
+                            <input type="number" class="form-control" id="balance" placeholder="0" value="{{model.totalAmount-model.discount-model.advance}}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="maintainanceCharges">Maintanance Charges Per Visit</label>
+                            <input type="number" class="form-control" id="maintainanceCharges" placeholder="0" ng-model="model.maintainanceCharges">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-sm-12 text-right" ng-if="isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="saveNonSurgicalPatient()">
+                        <i class="entypo-floppy"></i>
+                        Save
+                    </button>
+                </div>
+
+                <div class="col-sm-12 text-right" ng-if="!isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="updateNonSurgicalPatient()">
+                        <i class="entypo-floppy"></i>
+                        Update
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,167 @@
+﻿<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3 ng-if="isNewCustomer">
+                    New Customer
+                </h3>
+                <h3 ng-if="!isNewCustomer">
+                    Update Customer
+                </h3>
+                <span ng-if="isNewCustomer">Add New Customer</span>
+                <span ng-if="!isNewCustomer">Update Customer</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <fieldset>
+                    <legend>Personal Info</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="dateVisited">Date And Time Visited</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="model.dateVisited" is-open="isOpen" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openCalendar($event, prop)"><i class="entypo-calendar"></i></button>
+                                </span>
+                            </p>
+                            <!--<input type="datetime" class="form-control" id="dateVisited">-->
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Full Name" ng-model="model.name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" id="gender" ng-model="model.gender">
+                                <option value="1">Male</option>
+                                <option class="2">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" placeholder="0" ng-model="model.age">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="occupation">Occupation</label>
+                            <input type="text" class="form-control" id="occupation" placeholder="occupation" ng-model="model.occupation">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="yearsExpHairLoss">Years Experiencing Hair Loss</label>
+                            <input type="number" class="form-control" id="yearsExpHairLoss" placeholder="0" ng-model="model.yearsExpHairLoss">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" id="address" rows="5" cols="50" placeholder="address" ng-model="model.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="telephoneNo">Telephone Number</label>
+                            <input type="text" class="form-control" id="telephoneNo" placeholder="telephone number" ng-model="model.telephoneNo">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mobilenumber">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobilenumber" placeholder="mobile number" ng-model="model.mobileNo">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="email address" ng-model="model.emailAddress">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="soureceClinicInfo">Source Of Info About Our Clinic</label>
+                            <input type="text" class="form-control" id="soureceClinicInfo" placeholder="enter any source" ng-model="model.sourceClinicInfo">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>According to the chart below which stage of hair loss most closely resembles your own stage of hair loss ?</legend>
+                    <div class="col-sm-6">
+                        <img src="../../Content/assets/images/online-consultations.jpg" />
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="stage">Stage</label>
+                            <input type="number" class="form-control" id="stage" placeholder="stage" ng-model="model.hairLossStage">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Please check the different hair loss solutions that you would like to fine more about :</legend>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="list-group-item" ng-repeat="sol in hairLossSolutions">
+                                <input type="checkbox" checklist-model="model.solutionsWant" checklist-value="sol.id"> {{sol.name}}
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" id="comment" rows="5" cols="50" placeholder="address" ng-model="model.comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Estimated Price</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" ng-model="model.estimatedPrice">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select class="form-control" id="priority" ng-model="model.priority">
+                                <option value="1">High</option>
+                                <option class="2">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-sm-12 text-right" ng-if="isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="saveCustomer()">
+                        <i class="entypo-floppy"></i>
+                        Save
+                    </button>
+                </div>
+
+                <div class="col-sm-12 text-right" ng-if="!isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="updateCustomer()">
+                        <i class="entypo-floppy"></i>
+                        Update
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

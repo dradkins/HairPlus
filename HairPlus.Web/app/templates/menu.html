@@ -1,0 +1,176 @@
+﻿<div class="page-container">
+    <div class="sidebar-menu">
+        <div class="sidebar-menu-inner">
+
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="/Content/assets/images/logo@2x.png" width="120" alt="" />
+                    </a>
+                </div>
+                <!-- logo collapse icon -->
+                <div class="sidebar-collapse">
+                    <a href="" class="sidebar-collapse-icon" side-bar-collapse>
+                        <!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                        <i class="entypo-menu"></i>
+                    </a>
+                </div>
+
+                <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                <div class="sidebar-mobile-menu visible-xs">
+                    <a href="" class="with-animation" side-bar-collapse>
+                        <!-- add class "with-animation" to support animation -->
+                        <i class="entypo-menu"></i>
+                    </a>
+                </div>
+            </header>
+
+
+            <ul id="main-menu" class="main-menu">
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="dashboard">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="customers">
+                        <i class="entypo-basket"></i>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="surgical-patients">
+                        <i class="entypo-forward"></i>
+                        <span class="title">Surgical Patients</span>
+                    </a>
+                </li>
+
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="non-surgical-patients">
+                        <i class="entypo-export"></i>
+                        <span class="title">Non Surgical Patients</span>
+                    </a>
+                </li>
+
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="incomes">
+                        <i class="entypo-archive"></i>
+                        <span class="title">Income</span>
+                    </a>
+                </li>
+
+                <li class="" ui-sref-active="active">
+                    <a href="" ui-sref="expenses">
+                        <i class="entypo-database"></i>
+                        <span class="title">Expenses</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <div class="row hidden-print">
+
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+
+                <ul class="user-info pull-left pull-none-xsm">
+
+                    <!-- Profile Info -->
+                    <li class="profile-info dropdown">
+                        <!-- add class "pull-right" if you want to place this from right -->
+
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/Content/assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
+                            {{username}}
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <!-- Reverse Caret -->
+                            <li class="caret"></li>
+
+                            <!-- Profile sub-links -->
+                            <li>
+                                <a href="" ng-click="openChangeModal()">
+                                    <i class="entypo-lock-open"></i>
+                                    Change Password
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+                <ul class="list-inline links-list pull-right">
+
+                    <li>
+                        <a href="" ng-click="logout()">
+                            Log Out <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr class=" hidden-print" />
+
+        <ol class="breadcrumb bc-3 hidden-print">
+            <div ncy-breadcrumb></div>
+        </ol>
+
+        <div class="row">
+            <ui-view></ui-view>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main hidden-print">
+
+            &copy; 2016 <strong>HairPlus</strong> Project Developed By <a href="http://purgesol.com" target="_blank">PurgeSol</a>
+
+        </footer>
+    </div>
+</div>
+
+<!------------------- issue confirmation modal --------------------->
+<script type="text/ng-template" id="changePasswordContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Change Password</h3>
+    </div>
+    <form ng-submit="changePassword('#changePasswordForm')" id="changePasswordForm" change-password-validator novalidate>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" class="form-control" id="old-password" name="old-password" ng-model="changePasswordModal.oldPassword" />
+            </div>
+            <div class="form-group">
+                <label>New Password</label>
+                <input type="password" class="form-control" id="new-password" name="new-password" ng-model="changePasswordModal.newPassword" />
+            </div>
+            <div class="form-group">
+                <label>Confirm New Password</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" ng-model="changePasswordModal.confirmPassword" />
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</script>

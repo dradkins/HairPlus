@@ -1,0 +1,59 @@
+﻿<!--<div class="row">-->
+<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3>Expenses</h3>
+                <span>Already Added Expenses</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-12 text-right">
+                <a href="" ui-sref="add-expense" class="btn btn-primary btn-icon icon-left">
+                    <i class="entypo-plus-squared"></i>
+                    Add Expense
+                </a>
+            </div>
+            <hr />
+            <table class="table table-responsive table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Date &amp; Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="e in expenses">
+                        <td>{{$index+1}}</td>
+                        <td>{{e.expenseId}}</td>
+                        <td>{{e.amount}}</td>
+                        <td>{{e.description}}</td>
+                        <td>{{e.expenseDateTime}}</td>
+                        <td width="30%">
+                            <a ui-sref="update-expense({eId:{{e.expenseId}}})" class="btn btn-info btn-sm btn-icon icon-left">
+                                <i class="entypo-pencil"></i>
+                                View Details
+                            </a>
+                            <a href="" class="btn btn-danger btn-sm btn-icon icon-left" ng-click="deleteExpense(e)">
+                                <i class="entypo-cancel-squared"></i>
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--</div>-->

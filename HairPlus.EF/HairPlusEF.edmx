@@ -1,0 +1,3196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HairPlusDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Occupation" Type="nvarchar(max)" />
+          <Property Name="TotalYearsOfHairLoss" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="PhoneNo" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="EmailAddress" Type="nvarchar(max)" />
+          <Property Name="HowYouKnowUs" Type="nvarchar(max)" />
+          <Property Name="Stage" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="EstimatedAmount" Type="int" />
+          <Property Name="VisitDateTime" Type="datetime" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CustomerType" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomerPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="CutomerHairLossSolution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="HairLossSolutionId" Type="int" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="HairLossSolutions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="RefId" Type="int" />
+          <Property Name="InvoiceType" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="GenerationTime" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="RepairCharges" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="NonSurgicalPatient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Style" Type="nvarchar(max)" />
+          <Property Name="FiberHumanPerc" Type="nvarchar(max)" />
+          <Property Name="FiberSyntheticPerc" Type="nvarchar(max)" />
+          <Property Name="FiberGrayHairPerc" Type="nvarchar(max)" />
+          <Property Name="FiberColor" Type="nvarchar(max)" />
+          <Property Name="Length" Type="int" />
+          <Property Name="Curly" Type="int" />
+          <Property Name="Density" Type="int" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="MaintananceCharges" Type="int" Nullable="false" />
+          <Property Name="ColorInstructions" Type="nvarchar(max)" />
+          <Property Name="BaseInstructions" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BookingDateTime" Type="datetime" Nullable="false" />
+          <Property Name="TotalAmount" Type="int" Nullable="false" />
+          <Property Name="AdvanceAmount" Type="int" Nullable="false" />
+          <Property Name="DiscountAmount" Type="int" Nullable="false" />
+          <Property Name="TreatmentDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="RemindingDateTime" Type="datetime" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="SurgicalPatient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK__Customer__Create__30F848ED">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Create__571DF1D5">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Create__7D439ABD">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__31EC6D26">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__7E37BEF6">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__32E0915F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__59063A47">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__7F2BE32F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__00200768">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__33D4B598">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__59FA5E80">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__34C8D9D1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__5AEE82B9">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CutomerHa__Custo__160F4887">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CutomerHairLossSolution" Type="Self.CutomerHairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CutomerHairLossSolution">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CutomerHa__HairL__17036CC0">
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="0..1" />
+          <End Role="CutomerHairLossSolution" Type="Self.CutomerHairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HairLossSolutions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CutomerHairLossSolution">
+              <PropertyRef Name="HairLossSolutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__02084FDA">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__35BCFE0A">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__5BE2A6F2">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__36B12243">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__5CD6CB2B">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__03F0984C">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__37A5467C">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__5DCAEF64">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__38996AB5">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__5EBF139D">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__398D8EEE">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__5FB337D6">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__06CD04F7">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__3A81B327">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__60A75C0F">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__3E1D39E1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__3F115E1A">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__40058253">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__40F9A68C">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__41EDCAC5">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__42E1EEFE">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__43D61337">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__44CA3770">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__45BE5BA9">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__29221CFB">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__2A164134">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__2B0A656D">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2BFE89A6">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2CF2ADDF">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2DE6D218">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__2EDAF651">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__2FCF1A8A">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__30C33EC3">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__0D7A0286">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__412EB0B6">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__6754599E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__0E6E26BF">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__4222D4EF">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__68487DD7">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__339FAB6E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__3493CFA7">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__3587F3E0">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__367C1819">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__37703C52">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__3864608B">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__395884C4">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__3A4CA8FD">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__3B40CD36">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HairPlusDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerPhoto" EntityType="Self.CustomerPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CutomerHairLossSolution" EntityType="Self.CutomerHairLossSolution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HairLossSolutions" EntityType="Self.HairLossSolutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Income" EntityType="Self.Income" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NonSurgicalPatient" EntityType="Self.NonSurgicalPatient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurgicalPatient" EntityType="Self.SurgicalPatient" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Customer__Create__30F848ED" Association="Self.FK__Customer__Create__30F848ED">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Create__571DF1D5" Association="Self.FK__Customer__Create__571DF1D5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Create__7D439ABD" Association="Self.FK__Customer__Create__7D439ABD">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__31EC6D26" Association="Self.FK__Customer__Update__31EC6D26">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__5812160E" Association="Self.FK__Customer__Update__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__7E37BEF6" Association="Self.FK__Customer__Update__7E37BEF6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__32E0915F" Association="Self.FK__CustomerP__Creat__32E0915F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__59063A47" Association="Self.FK__CustomerP__Creat__59063A47">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__7F2BE32F" Association="Self.FK__CustomerP__Creat__7F2BE32F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__00200768" Association="Self.FK__CustomerP__Custo__00200768">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__33D4B598" Association="Self.FK__CustomerP__Custo__33D4B598">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__59FA5E80" Association="Self.FK__CustomerP__Custo__59FA5E80">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__01142BA1" Association="Self.FK__CustomerP__Updat__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__34C8D9D1" Association="Self.FK__CustomerP__Updat__34C8D9D1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__5AEE82B9" Association="Self.FK__CustomerP__Updat__5AEE82B9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CutomerHa__Custo__160F4887" Association="Self.FK__CutomerHa__Custo__160F4887">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CutomerHairLossSolution" EntitySet="CutomerHairLossSolution" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CutomerHa__HairL__17036CC0" Association="Self.FK__CutomerHa__HairL__17036CC0">
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+            <End Role="CutomerHairLossSolution" EntitySet="CutomerHairLossSolution" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__02084FDA" Association="Self.FK__Expense__Created__02084FDA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__35BCFE0A" Association="Self.FK__Expense__Created__35BCFE0A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__5BE2A6F2" Association="Self.FK__Expense__Created__5BE2A6F2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__02FC7413" Association="Self.FK__Expense__Updated__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__36B12243" Association="Self.FK__Expense__Updated__36B12243">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__5CD6CB2B" Association="Self.FK__Expense__Updated__5CD6CB2B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__03F0984C" Association="Self.FK__HairLossS__Creat__03F0984C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__37A5467C" Association="Self.FK__HairLossS__Creat__37A5467C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__5DCAEF64" Association="Self.FK__HairLossS__Creat__5DCAEF64">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__04E4BC85" Association="Self.FK__HairLossS__Updat__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__38996AB5" Association="Self.FK__HairLossS__Updat__38996AB5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__5EBF139D" Association="Self.FK__HairLossS__Updat__5EBF139D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__05D8E0BE" Association="Self.FK__Invoice__Created__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__398D8EEE" Association="Self.FK__Invoice__Created__398D8EEE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__5FB337D6" Association="Self.FK__Invoice__Created__5FB337D6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__06CD04F7" Association="Self.FK__Invoice__Custome__06CD04F7">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__3A81B327" Association="Self.FK__Invoice__Custome__3A81B327">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__60A75C0F" Association="Self.FK__Invoice__Custome__60A75C0F">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__3E1D39E1" Association="Self.FK__NonSurgic__Creat__3E1D39E1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__3F115E1A" Association="Self.FK__NonSurgic__Creat__3F115E1A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__40058253" Association="Self.FK__NonSurgic__Creat__40058253">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__40F9A68C" Association="Self.FK__NonSurgic__Updat__40F9A68C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__41EDCAC5" Association="Self.FK__NonSurgic__Updat__41EDCAC5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__42E1EEFE" Association="Self.FK__NonSurgic__Updat__42E1EEFE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__43D61337" Association="Self.FK__NonSurgicalP__Id__43D61337">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__44CA3770" Association="Self.FK__NonSurgicalP__Id__44CA3770">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__45BE5BA9" Association="Self.FK__NonSurgicalP__Id__45BE5BA9">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__29221CFB" Association="Self.FK__Patient__Created__29221CFB">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__2A164134" Association="Self.FK__Patient__Created__2A164134">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__2B0A656D" Association="Self.FK__Patient__Created__2B0A656D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2BFE89A6" Association="Self.FK__Patient__Id__2BFE89A6">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2CF2ADDF" Association="Self.FK__Patient__Id__2CF2ADDF">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2DE6D218" Association="Self.FK__Patient__Id__2DE6D218">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__2EDAF651" Association="Self.FK__Patient__Updated__2EDAF651">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__2FCF1A8A" Association="Self.FK__Patient__Updated__2FCF1A8A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__30C33EC3" Association="Self.FK__Patient__Updated__30C33EC3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__0D7A0286" Association="Self.FK__Reminder__Create__0D7A0286">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__412EB0B6" Association="Self.FK__Reminder__Create__412EB0B6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__6754599E" Association="Self.FK__Reminder__Create__6754599E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__0E6E26BF" Association="Self.FK__Reminder__Update__0E6E26BF">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__4222D4EF" Association="Self.FK__Reminder__Update__4222D4EF">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__68487DD7" Association="Self.FK__Reminder__Update__68487DD7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__339FAB6E" Association="Self.FK__SurgicalP__Creat__339FAB6E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__3493CFA7" Association="Self.FK__SurgicalP__Creat__3493CFA7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__3587F3E0" Association="Self.FK__SurgicalP__Creat__3587F3E0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__367C1819" Association="Self.FK__SurgicalP__Updat__367C1819">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__37703C52" Association="Self.FK__SurgicalP__Updat__37703C52">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__3864608B" Association="Self.FK__SurgicalP__Updat__3864608B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__395884C4" Association="Self.FK__SurgicalPati__Id__395884C4">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__3A4CA8FD" Association="Self.FK__SurgicalPati__Id__3A4CA8FD">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__3B40CD36" Association="Self.FK__SurgicalPati__Id__3B40CD36">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HairPlusDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__Create__30F848ED" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="Customers1" Relationship="Self.FK__Customer__Create__571DF1D5" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="Customers2" Relationship="Self.FK__Customer__Create__7D439ABD" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="Customers3" Relationship="Self.FK__Customer__Update__31EC6D26" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="Customers4" Relationship="Self.FK__Customer__Update__5812160E" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="Customers5" Relationship="Self.FK__Customer__Update__7E37BEF6" FromRole="AspNetUsers" ToRole="Customer" />
+          <NavigationProperty Name="CustomerPhotoes" Relationship="Self.FK__CustomerP__Creat__32E0915F" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes1" Relationship="Self.FK__CustomerP__Creat__59063A47" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes2" Relationship="Self.FK__CustomerP__Creat__7F2BE32F" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes3" Relationship="Self.FK__CustomerP__Updat__01142BA1" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes4" Relationship="Self.FK__CustomerP__Updat__34C8D9D1" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes5" Relationship="Self.FK__CustomerP__Updat__5AEE82B9" FromRole="AspNetUsers" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__Created__02084FDA" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="Expenses1" Relationship="Self.FK__Expense__Created__35BCFE0A" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="Expenses2" Relationship="Self.FK__Expense__Created__5BE2A6F2" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="Expenses3" Relationship="Self.FK__Expense__Updated__02FC7413" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="Expenses4" Relationship="Self.FK__Expense__Updated__36B12243" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="Expenses5" Relationship="Self.FK__Expense__Updated__5CD6CB2B" FromRole="AspNetUsers" ToRole="Expense" />
+          <NavigationProperty Name="HairLossSolutions" Relationship="Self.FK__HairLossS__Creat__03F0984C" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="HairLossSolutions1" Relationship="Self.FK__HairLossS__Creat__37A5467C" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="HairLossSolutions2" Relationship="Self.FK__HairLossS__Creat__5DCAEF64" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="HairLossSolutions3" Relationship="Self.FK__HairLossS__Updat__04E4BC85" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="HairLossSolutions4" Relationship="Self.FK__HairLossS__Updat__38996AB5" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="HairLossSolutions5" Relationship="Self.FK__HairLossS__Updat__5EBF139D" FromRole="AspNetUsers" ToRole="HairLossSolutions" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__Created__05D8E0BE" FromRole="AspNetUsers" ToRole="Invoice" />
+          <NavigationProperty Name="Invoices1" Relationship="Self.FK__Invoice__Created__398D8EEE" FromRole="AspNetUsers" ToRole="Invoice" />
+          <NavigationProperty Name="Invoices2" Relationship="Self.FK__Invoice__Created__5FB337D6" FromRole="AspNetUsers" ToRole="Invoice" />
+          <NavigationProperty Name="NonSurgicalPatients" Relationship="Self.FK__NonSurgic__Creat__3E1D39E1" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatients1" Relationship="Self.FK__NonSurgic__Creat__3F115E1A" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatients2" Relationship="Self.FK__NonSurgic__Creat__40058253" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatients3" Relationship="Self.FK__NonSurgic__Updat__40F9A68C" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatients4" Relationship="Self.FK__NonSurgic__Updat__41EDCAC5" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatients5" Relationship="Self.FK__NonSurgic__Updat__42E1EEFE" FromRole="AspNetUsers" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Patient__Created__29221CFB" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Patients1" Relationship="Self.FK__Patient__Created__2A164134" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Patients2" Relationship="Self.FK__Patient__Created__2B0A656D" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Patients3" Relationship="Self.FK__Patient__Updated__2EDAF651" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Patients4" Relationship="Self.FK__Patient__Updated__2FCF1A8A" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Patients5" Relationship="Self.FK__Patient__Updated__30C33EC3" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="Reminders" Relationship="Self.FK__Reminder__Create__0D7A0286" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="Reminders1" Relationship="Self.FK__Reminder__Create__412EB0B6" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="Reminders2" Relationship="Self.FK__Reminder__Create__6754599E" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="Reminders3" Relationship="Self.FK__Reminder__Update__0E6E26BF" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="Reminders4" Relationship="Self.FK__Reminder__Update__4222D4EF" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="Reminders5" Relationship="Self.FK__Reminder__Update__68487DD7" FromRole="AspNetUsers" ToRole="Reminder" />
+          <NavigationProperty Name="SurgicalPatients" Relationship="Self.FK__SurgicalP__Creat__339FAB6E" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatients1" Relationship="Self.FK__SurgicalP__Creat__3493CFA7" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatients2" Relationship="Self.FK__SurgicalP__Creat__3587F3E0" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatients3" Relationship="Self.FK__SurgicalP__Updat__367C1819" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatients4" Relationship="Self.FK__SurgicalP__Updat__37703C52" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatients5" Relationship="Self.FK__SurgicalP__Updat__3864608B" FromRole="AspNetUsers" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Occupation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalYearsOfHairLoss" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HowYouKnowUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Stage" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EstimatedAmount" Type="Int32" />
+          <Property Name="VisitDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerType" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Customer__Create__30F848ED" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Customer__Create__571DF1D5" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Customer__Create__7D439ABD" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Customer__Update__31EC6D26" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__Customer__Update__5812160E" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__Customer__Update__7E37BEF6" FromRole="Customer" ToRole="AspNetUsers" />
+          <NavigationProperty Name="CustomerPhotoes" Relationship="Self.FK__CustomerP__Custo__00200768" FromRole="Customer" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes1" Relationship="Self.FK__CustomerP__Custo__33D4B598" FromRole="Customer" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CustomerPhotoes2" Relationship="Self.FK__CustomerP__Custo__59FA5E80" FromRole="Customer" ToRole="CustomerPhoto" />
+          <NavigationProperty Name="CutomerHairLossSolutions" Relationship="Self.FK__CutomerHa__Custo__160F4887" FromRole="Customer" ToRole="CutomerHairLossSolution" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__Custome__06CD04F7" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="Invoices1" Relationship="Self.FK__Invoice__Custome__3A81B327" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="Invoices2" Relationship="Self.FK__Invoice__Custome__60A75C0F" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Patient__Id__2BFE89A6" FromRole="Customer" ToRole="Patient" />
+          <NavigationProperty Name="Patient1" Relationship="Self.FK__Patient__Id__2CF2ADDF" FromRole="Customer" ToRole="Patient" />
+          <NavigationProperty Name="Patient2" Relationship="Self.FK__Patient__Id__2DE6D218" FromRole="Customer" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="CustomerPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__CustomerP__Creat__32E0915F" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__CustomerP__Creat__59063A47" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__CustomerP__Creat__7F2BE32F" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__CustomerP__Updat__01142BA1" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__CustomerP__Updat__34C8D9D1" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__CustomerP__Updat__5AEE82B9" FromRole="CustomerPhoto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerP__Custo__00200768" FromRole="CustomerPhoto" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK__CustomerP__Custo__33D4B598" FromRole="CustomerPhoto" ToRole="Customer" />
+          <NavigationProperty Name="Customer2" Relationship="Self.FK__CustomerP__Custo__59FA5E80" FromRole="CustomerPhoto" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CutomerHairLossSolution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="HairLossSolutionId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__CutomerHa__Custo__160F4887" FromRole="CutomerHairLossSolution" ToRole="Customer" />
+          <NavigationProperty Name="HairLossSolution" Relationship="Self.FK__CutomerHa__HairL__17036CC0" FromRole="CutomerHairLossSolution" ToRole="HairLossSolutions" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Expense__Created__02084FDA" FromRole="Expense" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Expense__Created__35BCFE0A" FromRole="Expense" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Expense__Created__5BE2A6F2" FromRole="Expense" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Expense__Updated__02FC7413" FromRole="Expense" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__Expense__Updated__36B12243" FromRole="Expense" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__Expense__Updated__5CD6CB2B" FromRole="Expense" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="HairLossSolution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__HairLossS__Creat__03F0984C" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__HairLossS__Creat__37A5467C" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__HairLossS__Creat__5DCAEF64" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__HairLossS__Updat__04E4BC85" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__HairLossS__Updat__38996AB5" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__HairLossS__Updat__5EBF139D" FromRole="HairLossSolutions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="CutomerHairLossSolutions" Relationship="Self.FK__CutomerHa__HairL__17036CC0" FromRole="HairLossSolutions" ToRole="CutomerHairLossSolution" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="RefId" Type="Int32" />
+          <Property Name="InvoiceType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="GenerationTime" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="RepairCharges" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Invoice__Created__05D8E0BE" FromRole="Invoice" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Invoice__Created__398D8EEE" FromRole="Invoice" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Invoice__Created__5FB337D6" FromRole="Invoice" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Invoice__Custome__06CD04F7" FromRole="Invoice" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK__Invoice__Custome__3A81B327" FromRole="Invoice" ToRole="Customer" />
+          <NavigationProperty Name="Customer2" Relationship="Self.FK__Invoice__Custome__60A75C0F" FromRole="Invoice" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="NonSurgicalPatient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Style" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiberHumanPerc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiberSyntheticPerc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiberGrayHairPerc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiberColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="Int32" />
+          <Property Name="Curly" Type="Int32" />
+          <Property Name="Density" Type="Int32" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaintananceCharges" Type="Int32" Nullable="false" />
+          <Property Name="ColorInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BaseInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__NonSurgic__Creat__3E1D39E1" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__NonSurgic__Creat__3F115E1A" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__NonSurgic__Creat__40058253" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__NonSurgic__Updat__40F9A68C" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__NonSurgic__Updat__41EDCAC5" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__NonSurgic__Updat__42E1EEFE" FromRole="NonSurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__NonSurgicalP__Id__43D61337" FromRole="NonSurgicalPatient" ToRole="Patient" />
+          <NavigationProperty Name="Patient1" Relationship="Self.FK__NonSurgicalP__Id__44CA3770" FromRole="NonSurgicalPatient" ToRole="Patient" />
+          <NavigationProperty Name="Patient2" Relationship="Self.FK__NonSurgicalP__Id__45BE5BA9" FromRole="NonSurgicalPatient" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BookingDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+          <Property Name="AdvanceAmount" Type="Int32" Nullable="false" />
+          <Property Name="DiscountAmount" Type="Int32" Nullable="false" />
+          <Property Name="TreatmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Patient__Created__29221CFB" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Patient__Created__2A164134" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Patient__Created__2B0A656D" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Patient__Updated__2EDAF651" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__Patient__Updated__2FCF1A8A" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__Patient__Updated__30C33EC3" FromRole="Patient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Patient__Id__2BFE89A6" FromRole="Patient" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK__Patient__Id__2CF2ADDF" FromRole="Patient" ToRole="Customer" />
+          <NavigationProperty Name="Customer2" Relationship="Self.FK__Patient__Id__2DE6D218" FromRole="Patient" ToRole="Customer" />
+          <NavigationProperty Name="NonSurgicalPatient" Relationship="Self.FK__NonSurgicalP__Id__43D61337" FromRole="Patient" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatient1" Relationship="Self.FK__NonSurgicalP__Id__44CA3770" FromRole="Patient" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="NonSurgicalPatient2" Relationship="Self.FK__NonSurgicalP__Id__45BE5BA9" FromRole="Patient" ToRole="NonSurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatient" Relationship="Self.FK__SurgicalPati__Id__395884C4" FromRole="Patient" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatient1" Relationship="Self.FK__SurgicalPati__Id__3A4CA8FD" FromRole="Patient" ToRole="SurgicalPatient" />
+          <NavigationProperty Name="SurgicalPatient2" Relationship="Self.FK__SurgicalPati__Id__3B40CD36" FromRole="Patient" ToRole="SurgicalPatient" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="RemindingDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Reminder__Create__0D7A0286" FromRole="Reminder" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Reminder__Create__412EB0B6" FromRole="Reminder" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Reminder__Create__6754599E" FromRole="Reminder" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Reminder__Update__0E6E26BF" FromRole="Reminder" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__Reminder__Update__4222D4EF" FromRole="Reminder" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__Reminder__Update__68487DD7" FromRole="Reminder" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="SurgicalPatient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__SurgicalP__Creat__339FAB6E" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__SurgicalP__Creat__3493CFA7" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__SurgicalP__Creat__3587F3E0" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__SurgicalP__Updat__367C1819" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__SurgicalP__Updat__37703C52" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser5" Relationship="Self.FK__SurgicalP__Updat__3864608B" FromRole="SurgicalPatient" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__SurgicalPati__Id__395884C4" FromRole="SurgicalPatient" ToRole="Patient" />
+          <NavigationProperty Name="Patient1" Relationship="Self.FK__SurgicalPati__Id__3A4CA8FD" FromRole="SurgicalPatient" ToRole="Patient" />
+          <NavigationProperty Name="Patient2" Relationship="Self.FK__SurgicalPati__Id__3B40CD36" FromRole="SurgicalPatient" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Create__30F848ED">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Create__571DF1D5">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Create__7D439ABD">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__31EC6D26">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Update__7E37BEF6">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__32E0915F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__59063A47">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Creat__7F2BE32F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__34C8D9D1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Updat__5AEE82B9">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__02084FDA">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__35BCFE0A">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Created__5BE2A6F2">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__36B12243">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__Updated__5CD6CB2B">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__03F0984C">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__37A5467C">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Creat__5DCAEF64">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__38996AB5">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HairLossS__Updat__5EBF139D">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HairLossSolutions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__398D8EEE">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Created__5FB337D6">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__3E1D39E1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__3F115E1A">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Creat__40058253">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__40F9A68C">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__41EDCAC5">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgic__Updat__42E1EEFE">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__29221CFB">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__2A164134">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Created__2B0A656D">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__2EDAF651">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__2FCF1A8A">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Updated__30C33EC3">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__0D7A0286">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__412EB0B6">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Create__6754599E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__0E6E26BF">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__4222D4EF">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__Update__68487DD7">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__339FAB6E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__3493CFA7">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Creat__3587F3E0">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__367C1819">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__37703C52">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalP__Updat__3864608B">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__00200768">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__33D4B598">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerP__Custo__59FA5E80">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerPhoto" Type="Self.CustomerPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerPhoto">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CutomerHa__Custo__160F4887">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CutomerHairLossSolution" Type="Self.CutomerHairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CutomerHairLossSolution">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__06CD04F7">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__3A81B327">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoice__Custome__60A75C0F">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2BFE89A6">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2CF2ADDF">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Patient__Id__2DE6D218">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CutomerHa__HairL__17036CC0">
+          <End Role="HairLossSolutions" Type="Self.HairLossSolution" Multiplicity="0..1" />
+          <End Role="CutomerHairLossSolution" Type="Self.CutomerHairLossSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HairLossSolutions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CutomerHairLossSolution">
+              <PropertyRef Name="HairLossSolutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__43D61337">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__44CA3770">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NonSurgicalP__Id__45BE5BA9">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NonSurgicalPatient" Type="Self.NonSurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NonSurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__395884C4">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__3A4CA8FD">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SurgicalPati__Id__3B40CD36">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="SurgicalPatient" Type="Self.SurgicalPatient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurgicalPatient">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="HairPlusDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerPhotoes" EntityType="Self.CustomerPhoto" />
+          <EntitySet Name="CutomerHairLossSolutions" EntityType="Self.CutomerHairLossSolution" />
+          <EntitySet Name="Expenses" EntityType="Self.Expense" />
+          <EntitySet Name="HairLossSolutions" EntityType="Self.HairLossSolution" />
+          <EntitySet Name="Incomes" EntityType="Self.Income" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="NonSurgicalPatients" EntityType="Self.NonSurgicalPatient" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Reminders" EntityType="Self.Reminder" />
+          <EntitySet Name="SurgicalPatients" EntityType="Self.SurgicalPatient" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Create__30F848ED" Association="Self.FK__Customer__Create__30F848ED">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Create__571DF1D5" Association="Self.FK__Customer__Create__571DF1D5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Create__7D439ABD" Association="Self.FK__Customer__Create__7D439ABD">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__31EC6D26" Association="Self.FK__Customer__Update__31EC6D26">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__5812160E" Association="Self.FK__Customer__Update__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Update__7E37BEF6" Association="Self.FK__Customer__Update__7E37BEF6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__32E0915F" Association="Self.FK__CustomerP__Creat__32E0915F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__59063A47" Association="Self.FK__CustomerP__Creat__59063A47">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Creat__7F2BE32F" Association="Self.FK__CustomerP__Creat__7F2BE32F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__01142BA1" Association="Self.FK__CustomerP__Updat__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__34C8D9D1" Association="Self.FK__CustomerP__Updat__34C8D9D1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Updat__5AEE82B9" Association="Self.FK__CustomerP__Updat__5AEE82B9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__02084FDA" Association="Self.FK__Expense__Created__02084FDA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__35BCFE0A" Association="Self.FK__Expense__Created__35BCFE0A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Created__5BE2A6F2" Association="Self.FK__Expense__Created__5BE2A6F2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__02FC7413" Association="Self.FK__Expense__Updated__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__36B12243" Association="Self.FK__Expense__Updated__36B12243">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__Updated__5CD6CB2B" Association="Self.FK__Expense__Updated__5CD6CB2B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__03F0984C" Association="Self.FK__HairLossS__Creat__03F0984C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__37A5467C" Association="Self.FK__HairLossS__Creat__37A5467C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Creat__5DCAEF64" Association="Self.FK__HairLossS__Creat__5DCAEF64">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__04E4BC85" Association="Self.FK__HairLossS__Updat__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__38996AB5" Association="Self.FK__HairLossS__Updat__38996AB5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HairLossS__Updat__5EBF139D" Association="Self.FK__HairLossS__Updat__5EBF139D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__05D8E0BE" Association="Self.FK__Invoice__Created__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__398D8EEE" Association="Self.FK__Invoice__Created__398D8EEE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Created__5FB337D6" Association="Self.FK__Invoice__Created__5FB337D6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__3E1D39E1" Association="Self.FK__NonSurgic__Creat__3E1D39E1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__3F115E1A" Association="Self.FK__NonSurgic__Creat__3F115E1A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Creat__40058253" Association="Self.FK__NonSurgic__Creat__40058253">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__40F9A68C" Association="Self.FK__NonSurgic__Updat__40F9A68C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__41EDCAC5" Association="Self.FK__NonSurgic__Updat__41EDCAC5">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgic__Updat__42E1EEFE" Association="Self.FK__NonSurgic__Updat__42E1EEFE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__29221CFB" Association="Self.FK__Patient__Created__29221CFB">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__2A164134" Association="Self.FK__Patient__Created__2A164134">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Created__2B0A656D" Association="Self.FK__Patient__Created__2B0A656D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__2EDAF651" Association="Self.FK__Patient__Updated__2EDAF651">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__2FCF1A8A" Association="Self.FK__Patient__Updated__2FCF1A8A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Updated__30C33EC3" Association="Self.FK__Patient__Updated__30C33EC3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__0D7A0286" Association="Self.FK__Reminder__Create__0D7A0286">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__412EB0B6" Association="Self.FK__Reminder__Create__412EB0B6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Create__6754599E" Association="Self.FK__Reminder__Create__6754599E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__0E6E26BF" Association="Self.FK__Reminder__Update__0E6E26BF">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__4222D4EF" Association="Self.FK__Reminder__Update__4222D4EF">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__Update__68487DD7" Association="Self.FK__Reminder__Update__68487DD7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__339FAB6E" Association="Self.FK__SurgicalP__Creat__339FAB6E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__3493CFA7" Association="Self.FK__SurgicalP__Creat__3493CFA7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Creat__3587F3E0" Association="Self.FK__SurgicalP__Creat__3587F3E0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__367C1819" Association="Self.FK__SurgicalP__Updat__367C1819">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__37703C52" Association="Self.FK__SurgicalP__Updat__37703C52">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalP__Updat__3864608B" Association="Self.FK__SurgicalP__Updat__3864608B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__00200768" Association="Self.FK__CustomerP__Custo__00200768">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__33D4B598" Association="Self.FK__CustomerP__Custo__33D4B598">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerP__Custo__59FA5E80" Association="Self.FK__CustomerP__Custo__59FA5E80">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerPhoto" EntitySet="CustomerPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CutomerHa__Custo__160F4887" Association="Self.FK__CutomerHa__Custo__160F4887">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CutomerHairLossSolution" EntitySet="CutomerHairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__06CD04F7" Association="Self.FK__Invoice__Custome__06CD04F7">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__3A81B327" Association="Self.FK__Invoice__Custome__3A81B327">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoice__Custome__60A75C0F" Association="Self.FK__Invoice__Custome__60A75C0F">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2BFE89A6" Association="Self.FK__Patient__Id__2BFE89A6">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2CF2ADDF" Association="Self.FK__Patient__Id__2CF2ADDF">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Patient__Id__2DE6D218" Association="Self.FK__Patient__Id__2DE6D218">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CutomerHa__HairL__17036CC0" Association="Self.FK__CutomerHa__HairL__17036CC0">
+            <End Role="HairLossSolutions" EntitySet="HairLossSolutions" />
+            <End Role="CutomerHairLossSolution" EntitySet="CutomerHairLossSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__43D61337" Association="Self.FK__NonSurgicalP__Id__43D61337">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__44CA3770" Association="Self.FK__NonSurgicalP__Id__44CA3770">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NonSurgicalP__Id__45BE5BA9" Association="Self.FK__NonSurgicalP__Id__45BE5BA9">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="NonSurgicalPatient" EntitySet="NonSurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__395884C4" Association="Self.FK__SurgicalPati__Id__395884C4">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__3A4CA8FD" Association="Self.FK__SurgicalPati__Id__3A4CA8FD">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SurgicalPati__Id__3B40CD36" Association="Self.FK__SurgicalPati__Id__3B40CD36">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="SurgicalPatient" EntitySet="SurgicalPatients" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HairPlusDBModelStoreContainer" CdmEntityContainer="HairPlusDBEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="HairPlusDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="HairPlusDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="HairPlusDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="HairPlusDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="HairPlusDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="TotalYearsOfHairLoss" ColumnName="TotalYearsOfHairLoss" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="HowYouKnowUs" ColumnName="HowYouKnowUs" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="EstimatedAmount" ColumnName="EstimatedAmount" />
+                <ScalarProperty Name="VisitDateTime" ColumnName="VisitDateTime" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerPhotoes">
+            <EntityTypeMapping TypeName="HairPlusDBModel.CustomerPhoto">
+              <MappingFragment StoreEntitySet="CustomerPhoto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CutomerHairLossSolutions">
+            <EntityTypeMapping TypeName="HairPlusDBModel.CutomerHairLossSolution">
+              <MappingFragment StoreEntitySet="CutomerHairLossSolution">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="HairLossSolutionId" ColumnName="HairLossSolutionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenses">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Expense">
+              <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HairLossSolutions">
+            <EntityTypeMapping TypeName="HairPlusDBModel.HairLossSolution">
+              <MappingFragment StoreEntitySet="HairLossSolutions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incomes">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Income">
+              <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="GenerationTime" ColumnName="GenerationTime" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="RepairCharges" ColumnName="RepairCharges" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NonSurgicalPatients">
+            <EntityTypeMapping TypeName="HairPlusDBModel.NonSurgicalPatient">
+              <MappingFragment StoreEntitySet="NonSurgicalPatient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="FiberHumanPerc" ColumnName="FiberHumanPerc" />
+                <ScalarProperty Name="FiberSyntheticPerc" ColumnName="FiberSyntheticPerc" />
+                <ScalarProperty Name="FiberGrayHairPerc" ColumnName="FiberGrayHairPerc" />
+                <ScalarProperty Name="FiberColor" ColumnName="FiberColor" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Curly" ColumnName="Curly" />
+                <ScalarProperty Name="Density" ColumnName="Density" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MaintananceCharges" ColumnName="MaintananceCharges" />
+                <ScalarProperty Name="ColorInstructions" ColumnName="ColorInstructions" />
+                <ScalarProperty Name="BaseInstructions" ColumnName="BaseInstructions" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BookingDateTime" ColumnName="BookingDateTime" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="AdvanceAmount" ColumnName="AdvanceAmount" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="TreatmentDateTime" ColumnName="TreatmentDateTime" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reminders">
+            <EntityTypeMapping TypeName="HairPlusDBModel.Reminder">
+              <MappingFragment StoreEntitySet="Reminder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RemindingDateTime" ColumnName="RemindingDateTime" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurgicalPatients">
+            <EntityTypeMapping TypeName="HairPlusDBModel.SurgicalPatient">
+              <MappingFragment StoreEntitySet="SurgicalPatient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="HairPlusDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

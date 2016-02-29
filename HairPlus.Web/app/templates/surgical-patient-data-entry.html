@@ -1,0 +1,112 @@
+﻿<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3 ng-if="isNewCustomer">
+                    New Surgical Customer
+                </h3>
+                <h3 ng-if="!isNewCustomer">
+                    Update Surgical Customer
+                </h3>
+                <span ng-if="isNewCustomer">Add New Surgical Customer</span>
+                <span ng-if="!isNewCustomer">Update Surgical Customer</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <fieldset>
+                    <legend>Personal Info</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" disabled class="form-control" id="fullName" placeholder="Full Name" ng-model="data.name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="telephoneNo">Telephone Number</label>
+                            <input type="text" class="form-control" id="telephoneNo" placeholder="telephone number" ng-model="data.telephoneNo" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mobilenumber">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobilenumber" placeholder="mobile number" ng-model="data.mobileNo" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" id="address" rows="5" cols="50" placeholder="address" ng-model="data.address" disabled></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Office Departmen</legend>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="dateVisited">Appointment Date &amp; Time</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="model.treatmentDateTime" is-open="isOpen" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openCalendar($event, prop)"><i class="entypo-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Total Amount</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" ng-model="model.totalAmount">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Discount</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" ng-model="model.discount">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Advance</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" ng-model="model.advance">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Net Amount</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" value="{{model.totalAmount-model.discount}}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estimatedPrice">Balance</label>
+                            <input type="number" class="form-control" id="estimatedPrice" placeholder="0" value="{{model.totalAmount-model.discount-model.advance}}" disabled>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-sm-12 text-right" ng-if="isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="saveSurgicalPatient()">
+                        <i class="entypo-floppy"></i>
+                        Save
+                    </button>
+                </div>
+
+                <div class="col-sm-12 text-right" ng-if="!isNewCustomer">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="updateSurgicalPatient()">
+                        <i class="entypo-floppy"></i>
+                        Update
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

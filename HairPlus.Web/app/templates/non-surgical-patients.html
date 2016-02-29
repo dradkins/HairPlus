@@ -1,0 +1,108 @@
+﻿<!--<div class="row">-->
+<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3>Non Surgical Patients</h3>
+                <span>Already Added Non Surgical Patients</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-12 text-right">
+                <div class="btn-group" uib-dropdown>
+                    <button id="check-status-button" type="button" class="btn btn-primary btn-sm">Check With Status</button>
+                    <button type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle>
+                        <span class="caret"></span>
+                        <span class="sr-only">Check With Status</span>
+                    </button>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="check-status-button">
+                        <li role="menuitem" ng-class="{active: pagingInfo.patientStatus==1}"><a href="" ng-click="changePatientStatus(1)">Done</a></li>
+                        <li role="menuitem" ng-class="{active: pagingInfo.patientStatus==2}"><a href="" ng-click="changePatientStatus(2)">In Process</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <table class="table table-responsive table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Total Amount</th>
+                        <th>Discount</th>
+                        <th>Advance</th>
+                        <th>Balance</th>
+                        <th>Treatment Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="p in patients">
+                        <td>{{$index+1}}</td>
+                        <td>
+                            <img ng-src="{{p.defaultPicture}}" class="img-circle" width="40" height="40" />
+                        </td>
+                        <td>{{p.patientId}}</td>
+                        <td>{{p.patientName}}</td>
+                        <td>{{p.totalAmount}}</td>
+                        <td>{{p.discount}}</td>p
+                        <td>{{p.advance}}</td>
+                        <td>{{p.totalAmount-p.discount-p.advance}}</td>
+                        <td>{{p.treatmentDateTime | date: 'medium'}}</td>
+                        <td width="40%">
+                            <a ui-sref="customer-photos({cId:{{p.patientId}}})" class="btn btn-warning btn-sm btn-icon icon-left">
+                                <i class="entypo-picture"></i>
+                                Photos
+                            </a>
+
+                            <a ui-sref="update-surgical-patient({pId:{{p.patientId}}})" class="btn btn-info btn-sm btn-icon icon-left">
+                                <i class="entypo-pencil"></i>
+                                Details
+                            </a>
+
+                            <div class="btn-group" uib-dropdown>
+                                <button id="split-button" type="button" class="btn btn-primary btn-sm">Update Status</button>
+                                <button type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Status Update</span>
+                                </button>
+                                <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                                    <li role="menuitem"><a href="" ng-click="updateStatus(p, 1)">Done</a></li>
+                                    <li role="menuitem"><a href="" ng-click="updateStatus(p, 2)">In Process</a></li>
+
+                                </ul>
+                            </div>
+
+
+                            <a class="btn btn-danger btn-sm btn-icon icon-left" href="" ng-click="deletePatient(p)">
+                                <i class="entypo-cancel-squared"></i>
+                                Delete
+                            </a>
+
+                            <a class="btn btn-default btn-sm btn-icon icon-left" href="" ui-sref="invoice({cId:p.patientId, iType:2})">
+                                <i class="entypo-calendar"></i>
+                                Print Invoice
+                            </a>
+
+                            <a class="btn btn-default btn-sm btn-icon icon-left" href="" ui-sref="invoice({cId:p.patientId, iType:3})">
+                                <i class="entypo-calendar"></i>
+                                Maintanance Invoice
+                            </a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--</div>-->

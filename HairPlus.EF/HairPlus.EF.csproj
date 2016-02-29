@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{249C6D03-FAEC-424D-AEBE-8ED3A2333933}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HairPlus.EF</RootNamespace>
+    <AssemblyName>HairPlus.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPhoto.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CutomerHairLossSolution.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Expense.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HairLossSolution.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HairPlusEF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HairPlusEF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HairPlusEF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HairPlusEF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HairPlusEF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Income.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NonSurgicalPatient.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reminder.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SurgicalPatient.cs">
+      <DependentUpon>HairPlusEF.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="HairPlusEF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HairPlusEF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HairPlusEF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HairPlusEF.edmx</DependentUpon>
+      <LastGenOutput>HairPlusEF.Context.cs</LastGenOutput>
+    </None>
+    <None Include="HairPlusEF.edmx.diagram">
+      <DependentUpon>HairPlusEF.edmx</DependentUpon>
+    </None>
+    <None Include="HairPlusEF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HairPlusEF.edmx</DependentUpon>
+      <LastGenOutput>HairPlusEF.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

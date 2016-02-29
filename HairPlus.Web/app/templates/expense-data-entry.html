@@ -1,0 +1,68 @@
+﻿<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3 ng-if="isNewExpense">
+                    New Expense
+                </h3>
+                <h3 ng-if="!isNewExpense">
+                    Update Expense
+                </h3>
+                <span ng-if="isNewExpense">Add New Expense</span>
+                <span ng-if="!isNewExpense">Update Expense</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <fieldset>
+                    <legend>Expense Info</legend>
+                    <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="expenseDateTime">Date And Time Of Expense</label>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="model.expenseDateTime" is-open="isOpen" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="openCalendar($event, prop)"><i class="entypo-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="eamount">Amount</label>
+                                <input type="number" class="form-control" id="eamount" placeholder="0" ng-model="model.amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="5" cols="50" placeholder="description" ng-model="model.description"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-sm-12 text-right" ng-if="isNewExpense">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="saveExpense()">
+                        <i class="entypo-floppy"></i>
+                        Save
+                    </button>
+                </div>
+
+                <div class="col-sm-12 text-right" ng-if="!isNewExpense">
+                    <button type="button" class="btn btn-primary btn-icon icon-left" ng-click="updateExpense()">
+                        <i class="entypo-floppy"></i>
+                        Update
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

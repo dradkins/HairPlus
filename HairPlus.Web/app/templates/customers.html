@@ -1,0 +1,79 @@
+﻿<!--<div class="row">-->
+<div class="col-sm-12">
+    <div class="panel panel-primary panel-table">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3>Customers</h3>
+                <span>Already Added Customers</span>
+            </div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-12 text-right">
+                <a href="" ui-sref="add-customer" class="btn btn-primary btn-icon icon-left">
+                    <i class="entypo-plus-squared"></i>
+                    Add Customer
+                </a>
+            </div>
+            <hr />
+            <table class="table table-responsive table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Occupation</th>
+                        <th>Treatments</th>
+                        <th>Amount</th>
+                        <th>Visit Date Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="customer in customers">
+                        <td>{{$index+1}}</td>
+                        <td>{{customer.customerId}}</td>
+                        <td>{{customer.customerName}}</td>
+                        <td>{{customer.gender}}</td>
+                        <td>{{customer.occupation}}</td>
+                        <td>
+                            <ul>
+                                <li ng-repeat="treatment in customer.treatments">
+                                    {{treatment.name}}
+                                </li>
+                            </ul>
+                        </td>
+                        <td>{{customer.estimatedAmount}}</td>
+                        <td>{{customer.dateVisit | date: 'medium'}}</td>
+                        <td width="40%">
+                            <a ui-sref="customer-photos({cId:{{customer.customerId}}})" class="btn btn-default btn-sm btn-icon icon-left">
+                                <i class="entypo-picture"></i>
+                                Pictures
+                            </a>
+                            <a ui-sref="update-customer({cId:{{customer.customerId}}})" class="btn btn-info btn-sm btn-icon icon-left">
+                                <i class="entypo-pencil"></i>
+                                View Details
+                            </a>
+                            <a ui-sref="add-surgical-patient({pId:{{customer.customerId}}})" class="btn btn-danger btn-sm btn-icon icon-left">
+                                <i class="entypo-cancel-squared"></i>
+                                Surgical
+                            </a>
+                            <a ui-sref="add-non-surgical-patient({pId:{{customer.customerId}}})" class="btn btn-warning btn-sm btn-icon icon-left">
+                                <i class="entypo-pencil"></i>
+                                Non Surgical
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--</div>-->
